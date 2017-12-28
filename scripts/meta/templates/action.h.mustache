@@ -1,0 +1,44 @@
+// auto-generated don't edit !
+
+#ifndef {{action_name}}_HEADER_
+#define {{action_name}}_HEADER_
+
+
+{{#has_base}}#include <parsian_util/action/autogenerate/{{base_action_file}}> {{/has_base}}
+{{^has_base}}#include <parsian_util/action/action.h>{{/has_base}}
+#include <parsian_util/geom/geom.h>
+#include <parsian_msgs/{{message}}.h>
+#include <list>
+
+class {{action_name}} : {{#has_base}}public {{base_action}} {{/has_base}}{{^has_base}}public Action{{/has_base}} {
+
+public:
+    {{action_name}}();
+    void setMessage(const void* _msg);
+
+    void* getMessage();
+
+    QString getActionName() override;
+    static QString SActionName();
+
+
+{{#properties}}
+    SkillProperty({{action_name}}, {{type}}, {{name}}, {{local}});
+{{/properties}}
+{{#parsian_properties}}
+    SkillProperty({{action_name}}, {{type}}, {{name}}, {{local}});
+{{/parsian_properties}}
+{{#list_properties}}
+protected:
+    {{{type}}} {{local}};
+public:
+    void clear{{name}}();
+    void add{{name}}({{m_type}});
+    void remove{{name}}({{m_type}});
+    {{{type}}} get{{name}}();
+{{/list_properties}}
+
+
+};
+
+#endif // {{action_name}}_HEADER_

@@ -1,0 +1,14 @@
+vector2D targetPos
+vector2D targetDir
+vector2D targetVel
+bool dynamicStart
+float32 maxAcceleration
+float32 maxDeceleration
+float32 maxVelocity
+vector2D lookAt
+bool oneTouchMode
+bool slowMode
+bool penaltyKick
+bool diveMode
+bool smooth
+uint8 roller

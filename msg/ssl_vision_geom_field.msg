@@ -1,0 +1,27 @@
+float32 field_length
+float32 field_width
+float32 goal_width
+float32 goal_depth
+float32 boundary_width
+
+# The field lines and arcs.
+# For easy addressing.
+ssl_vision_geom_field_line top_line
+ssl_vision_geom_field_line bottom_line
+ssl_vision_geom_field_line left_line
+ssl_vision_geom_field_line right_line
+ssl_vision_geom_field_line half_line
+ssl_vision_geom_field_line center_line
+ssl_vision_geom_field_line left_penalty_line
+ssl_vision_geom_field_line right_penalty_line
+
+ssl_vision_geom_field_arc top_left_penalty_arc
+ssl_vision_geom_field_arc bottom_left_penalty_arc
+ssl_vision_geom_field_arc top_right_penalty_arc
+ssl_vision_geom_field_arc bottom_right_penalty_arc
+ssl_vision_geom_field_arc center_circle
+
+# All the field lines and arcs again.
+# For easy iterating.
+ssl_vision_geom_field_line[] field_lines
+ssl_vision_geom_field_arc[] field_arcs

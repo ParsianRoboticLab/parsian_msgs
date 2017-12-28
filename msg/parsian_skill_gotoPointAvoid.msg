@@ -1,0 +1,10 @@
+parsian_msgs/parsian_skill_gotoPoint base
+vector2D addVel
+bool avoidPenaltyArea
+bool noAvoid
+bool avoidCenterCircle
+float32 ballObstacleRadius
+bool drawPath
+bool diveMode
+uint8[] ourrelax
+uint8[] theirrelax

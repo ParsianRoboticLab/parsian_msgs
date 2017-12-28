@@ -1,0 +1,63 @@
+// auto-generated don't edit !
+
+#include <parsian_util/action/autogenerate/{{file_name}}.h>
+
+{{action_name}}::{{action_name}}() {
+{{#properties}}
+       {{local}}{{default_value}};
+{{/properties}}
+}
+
+void {{action_name}}::setMessage(const void* _msg) {
+    parsian_msgs::{{message}} msg = *((parsian_msgs::{{message}}*)_msg);
+    {{#properties}}
+        {{local}} = msg.{{local}};
+    {{/properties}}
+    {{#parsian_properties}}
+        {{local}} = msg.{{local}};
+    {{/parsian_properties}}
+
+    {{#has_base}}
+        {{base_action}}::setMessage(&msg.base);
+    {{/has_base}}
+}
+
+void* {{action_name}}::getMessage() {
+    parsian_msgs::{{message}}* _msg = new parsian_msgs::{{message}};
+{{#has_base}}
+    _msg->base = *((parsian_msgs::{{base_message}}*) {{base_action}}::getMessage());
+{{/has_base}}
+{{#properties}}
+    _msg->{{local}} = {{local}};
+{{/properties}}
+{{#parsian_properties}}
+    _msg->{{local}} = {{local}}.toParsianMessage();
+{{/parsian_properties}}
+    return _msg;
+
+}
+
+
+QString {{action_name}}::getActionName(){
+    return SActionName();
+}
+
+QString {{action_name}}::SActionName(){
+    return QString{"{{action_name}}"};
+}
+
+{{#list_properties}}
+void {{action_name}}::clear{{name}}() {
+    {{local}}.clear();
+}
+
+void {{action_name}}::add{{name}}({{m_type}} _t) {
+    {{local}}.push_back(_t);
+}
+void {{action_name}}::remove{{name}}({{m_type}} _t) {
+    {{local}}.remove(_t);
+}
+{{{type}}} {{action_name}}::get{{name}}() {
+    return {{local}};
+}
+{{/list_properties}}
